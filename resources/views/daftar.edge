@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Font-family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Cleaning Garden - Daftar</title>
+  </head>
+    <body style="background: #F7F7F7">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/" style="color: #2E5238; font-family: 'Poppins', sans-serif; font-size: 25px">
+            <img src="images/logo1.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+              Cleaning Garden
+          </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="d-flex" id="navbarSupportedContent" style="margin-right: 40px; font-family: 'Poppins', sans-serif;">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link"  href="/beranda">Beranda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/layanan">Layanan</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/tentang">Tentang Kami</a>
+                  </li>
+                  @loggedIn
+                  <li class="nav-item">
+                    <a class="nav-link" href="/keluar">Keluar</a>
+                  </li>
+                  @else
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: #00BD79;" href="/masuk">Masuk/Daftar</a>
+                  </li>
+                  @endloggedIn
+                </ul>
+              </div> 
+            </div>
+          </nav>
+    </nav>
+    <div class="d-flex bd-highlight">
+      <div class="align-self-center">
+        <h1 style="color: #000000; font-family: 'Poppins', sans-serif; font-size: 45px; margin-left: 40px;">Daftar dan bersihkan <br> <span style="color: #00BD79;">tamanmu.</span></h1>
+      </div>
+      
+      <div class="align-self-end">
+        <div class="card" style="width: 30rem; height: 480px; border-radius: 15px; margin-top: 60px; margin-left: 240px; padding: 30px;">
+          <div class="card-body text-center">
+            <h4 class="card-title mb-4" style="color: #2E5238; font-family: 'Poppins', sans-serif; font-size: 25px">Daftar</h4>
+            <form action="/daftar" method="post">
+              {{ csrfField() }}
+              <div class="mb-3">
+                <input placeholder="Nama Lengkap" type="name" class="form-control" id="name" name="name">
+                {{ elIf('<span style="color: red;">$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
+              </div>
+              <div class="mb-3">
+                <input placeholder="Email" type="text" class="form-control" id="email" name="email">
+                {{ elIf('<span style="color: red;">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+              </div>
+              <div class="mb-3">
+                <input placeholder="Password" type="password" class="form-control" id="password" name="password">
+                {{ elIf('<span style="color: red;">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
+              </div>
+              <div class="mb-3">
+                <input placeholder="Nomor HP" type="text" class="form-control" id="no_hp" name="no_hp">
+                {{ elIf('<span style="color: red;">$self</span>', getErrorFor('no_hp'), hasErrorFor('no_hp')) }}
+              </div>
+              <div class="mb-3">
+                <input placeholder="Domisili" type="text" class="form-control" id="domisili" name="domisili">
+                {{ elIf('<span style="color: red;">$self</span>', getErrorFor('domisili'), hasErrorFor('domisili')) }}
+              </div>
+              <button type="submit" class="btn btn-success center" style="width: 285px; margin-bottom: 10px;">Daftar</button>
+              <label class="form-check-label" href="/daftar" for="exampleCheck1">Belum punya akun? <a href="/masuk" >Masuk</a> Sekarang</label>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <h1>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">
+              <picture>
+                <source srcset="..." type="...">
+                <img src="images/img-home.png" class="rounded d-block mb-4 mt-5" alt="..." style="height:560px; width: 560px; margin-left: 50px;">
+              </picture></th>
+            <th vertical-align: middle; scope="col">Clean Your Garden</th>
+          </tr>
+        </thead>
+      </table>
+    </h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
